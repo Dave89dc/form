@@ -1,0 +1,16 @@
+div{
+  margin: 10px 0 5px
+}
+
+input{
+  margin-left: 10px
+}
+button{
+  margin: 20px 0px;
+  cursor: pointer;
+}
+
+input.ng-invalid {
+  color: red;
+  border: 1px solid red;
+}

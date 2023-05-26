@@ -1,0 +1,15 @@
+<form id="form" (submit)="submitForm($event)">
+  <div>
+    <label for="email">Inserisci email:</label>
+    <input id="email" type="email" name="email" required>
+  </div>
+  <div>
+    <label for="password">Inserisci password:</label>
+    <input id="password" type="password" name="password" required minlength="4">
+  </div>
+  <div>
+    <label for="newsletter">Iscriviti alla newsletter:</label>
+    <input id="newsletter" type="checkbox" name="newsletter">
+  </div>
+  <button type="submit">Conferma</button>
+</form>
