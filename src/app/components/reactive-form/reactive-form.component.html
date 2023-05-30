@@ -1,19 +1,19 @@
 <form #myForm="ngForm" [formGroup]="formGroup" (ngSubmit)="submitForm()">
   <div>
-    <label for="email">Inserisci email:</label>
-    <input id="email" formControlName="email">
+    <label for="email3">Inserisci email:</label>
+    <input id="email3" formControlName="email">
   </div>
   <div>
-    <label for="password">Inserisci password:</label>
-    <input id="password" type="password" formControlName="password">
+    <label for="password3">Inserisci password:</label>
+    <input id="password3" type="password" formControlName="password">
     <span *ngIf="password.invalid">
       <span *ngIf="password.errors?.['required']">La password non può essere vuota!</span>
       <span *ngIf="password.errors?.['minlength']">La password non può avere meno di 4 caratteri!</span>
     </span>
   </div>
   <div>
-    <label for="newsletter">Iscriviti alla newsletter:</label>
-    <input id="newsletter" type="checkbox" formControlName="data.newsletter">
+    <label for="newsletter3">Iscriviti alla newsletter:</label>
+    <input id="newsletter3" type="checkbox" formControlName="newsletter">
   </div>
   <input type="submit" [disabled]="myForm.form.invalid">
   <span *ngIf="myForm.form.invalid">Compila i dati in modo corretto!</span>

@@ -1,0 +1,57 @@
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+  <div>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" formControlName="nome">
+    <span *ngIf="registrationForm.get('nome')?.invalid && (registrationForm.get('nome')?.dirty || registrationForm.get('nome')?.touched)">
+      <span *ngIf="registrationForm.get('nome')?.errors?.['required']">Il nome è obbligatorio!</span>
+      <span *ngIf="registrationForm.get('nome')?.errors?.['minlength']">Il nome deve essere lungo almeno 3 caratteri!</span>
+    </span>
+  </div>
+  <div>
+    <label for="cognome">Cognome:</label>
+    <input type="text" id="cognome" formControlName="cognome">
+    <span *ngIf="registrationForm.get('cognome')?.invalid && (registrationForm.get('cognome')?.dirty || registrationForm.get('cognome')?.touched)">
+      <span *ngIf="registrationForm.get('cognome')?.errors?.['required']">Il cognome è obbligatorio!</span>
+      <span *ngIf="registrationForm.get('cognome')?.errors?.['minlength']">Il cognome deve essere lungo almeno 3 caratteri!</span>
+    </span>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email">
+    <span *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)">
+      <span *ngIf="registrationForm.get('email')?.errors?.['required']">L'email è obbligatoria!</span>
+      <span *ngIf="registrationForm.get('email')?.errors?.['email']">L'email non è valida!</span>
+    </span>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Seleziona una data:</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Interessi:</mat-label>
+      <mat-select formControlName="interests" multiple>
+        <mat-option *ngFor="let interest of interests" [value]="interest">{{interest}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="privacy">
+      Accetto i termini e le condizioni
+    </label>
+    <span *ngIf="registrationForm.get('privacy')?.invalid && (registrationForm.get('privacy')?.dirty || registrationForm.get('privacy')?.touched)">
+      <span *ngIf="registrationForm.get('privacy')?.errors?.['required']">Devi accettare i termini e le condizioni!</span>
+    </span>
+  </div>
+  <button type="submit">Invia</button>
+</form>
+
+
+
+
